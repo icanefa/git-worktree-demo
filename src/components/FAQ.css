@@ -1,0 +1,87 @@
+.faq {
+  /* FAQ 本地變數，預設指向全域變數，若無則用 hardcode 備用 */
+  --faq-bg: var(--color-bg, #0a0e1a);
+  --faq-item-bg: var(--color-bg-card, #1a2035);
+  --faq-item-bg-hover: var(--color-bg-card-hover, #1f2847);
+  --faq-text: var(--color-text, #f1f5f9);
+  --faq-text-muted: var(--color-text-secondary, #94a3b8);
+  --faq-border: var(--color-border, rgba(148, 163, 184, 0.12));
+  --faq-primary: var(--color-primary, #6366f1);
+  --faq-transition: var(--transition-base, 250ms cubic-bezier(0.4, 0, 0.2, 1));
+  --faq-radius: var(--radius-xl, 1rem);
+
+  padding: var(--space-24, 6rem) 0;
+  background-color: var(--faq-bg);
+}
+
+.faq__container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+}
+
+.faq__item {
+  background-color: var(--faq-item-bg);
+  border: 1px solid var(--faq-border);
+  border-radius: var(--faq-radius);
+  overflow: hidden;
+  transition: background-color var(--faq-transition), border-color var(--faq-transition);
+}
+
+.faq__item:hover {
+  background-color: var(--faq-item-bg-hover);
+  border-color: var(--faq-primary);
+}
+
+.faq__header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-5, 1.25rem) var(--space-6, 1.5rem);
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--faq-text);
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 600;
+  text-align: left;
+}
+
+.faq__icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--faq-primary);
+  font-size: var(--text-xl, 1.25rem);
+  transition: transform var(--faq-transition);
+}
+
+.faq__content {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--faq-transition);
+}
+
+.faq__item--active .faq__content {
+  grid-template-rows: 1fr;
+}
+
+.faq__content-inner {
+  overflow: hidden;
+}
+
+.faq__text {
+  padding: 0 var(--space-6, 1.5rem) var(--space-5, 1.25rem);
+  color: var(--faq-text-muted);
+  line-height: 1.6;
+  font-size: var(--text-base, 1rem);
+}
